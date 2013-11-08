@@ -1,0 +1,40 @@
+{
+  "name": "GruntBoilerplate",
+  "title": "Kick start for web or app development",
+  "url": "http://www.benjamin-horner.com",
+  "author": "Benjamin Horner",
+  "copyright": "2013",
+  "version": "0.1.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/benjaminhorner/grunt-boilerplate.git"
+  },
+  "devDependencies": {
+    "bower": "~1.2.6",
+    "grunt": "~0.4.1",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt-contrib-sass": "~0.5.0",
+    "grunt-contrib-uglify": "~0.2.0",
+    "grunt-contrib-connect": "~0.3.0",
+    "grunt-contrib-watch": "~0.4.4",
+    "grunt-bower": "~0.7.0",
+    "grunt-contrib-cssmin": "~0.7.0",
+    "grunt-contrib-clean": "~0.5.0",
+    "connect-livereload": "~0.2.0",
+    "grunt-open": "~0.2.0",
+    "matchdep": "~0.1.2",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-htmlmin": "~0.1.3",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-imagemin": "~0.3.0",
+    "grunt-replace": "~0.5.1"
+  },
+  "scripts": {
+    "postinstall": "node_modules/.bin/bower install"
+  },
+  "path": "src/",
+  "devPath": "dev/",
+  "prodPath": "prod/",
+  "fileType": "html"
+}
