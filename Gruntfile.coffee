@@ -18,7 +18,7 @@ module.exports = (grunt)->
 
             template:
                 files: ['<%= pkg.path %>*.<%= pkg.fileType %>']
-                tasks: ['replace:dev']
+                tasks: ['htmlmin:dev', 'replace:dev']
                 options:
                     livereload: true,
 
@@ -29,7 +29,7 @@ module.exports = (grunt)->
                     '<%= pkg.path %>assets/js/*.js',
                     '<%= pkg.path %>assets/css/*.css',
                     '<%= pkg.path %>assets/img/{,**/}*.{png,jpg,jpeg,gif,webp,svg}',
-                    '<%= pkg.path %>*.<%= pkg.fileType %>'
+                    '<%= pkg.devPath %>*.<%= pkg.fileType %>'
                 ]
 
         coffee:
