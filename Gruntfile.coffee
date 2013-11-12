@@ -86,9 +86,9 @@ module.exports = (grunt)->
                     javascriptsDir: '<%= pkg.devPath %>assets/js',
                     fontsDir: '<%= pkg.devPath %>assets/fonts',
                     importPath: '<%= pkg.path %>coffee/libs',
-                    #httpImagesPath: '/images',
-                    #httpGeneratedImagesPath: '/images/generated',
-                    #relativeAssets: false
+                    httpImagesPath: '<%= pkg.devPath %>assets/img',
+                    httpGeneratedImagesPath: '<%= pkg.devPath %>assets/img',
+                    relativeAssets: true
 
             prod:
                 options:
@@ -99,9 +99,9 @@ module.exports = (grunt)->
                     javascriptsDir: '<%= pkg.prodPath %>assets/js',
                     fontsDir: '<%= pkg.prodPath %>assets/fonts',
                     importPath: '<%= pkg.path %>coffee/libs',
-                    #httpImagesPath: '/images',
-                    #httpGeneratedImagesPath: '/images/generated',
-                    #relativeAssets: false
+                    httpImagesPath: '<%= pkg.prodPath %>assets/img',
+                    httpGeneratedImagesPath: '<%= pkg.prodPath %>assets/img',
+                    relativeAssets: true
 
         htmlmin:
             dev:
