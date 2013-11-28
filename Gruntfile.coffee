@@ -78,8 +78,7 @@ module.exports = (grunt)->
                               ' * Copyright <%= pkg.copyright %>. <%= pkg.license %> licensed.\n' +
                               ' */\n'
                 files:
-                    '<%= pkg.prodPath %>assets/js/app.js': ['<%= pkg.prodPath %>assets/js/app.js']
-                    '<%= pkg.devPath %>assets/js/libs.min.js': ['<%= pkg.path %>coffee/libs/*.js']
+                    '<%= pkg.prodPath %>assets/js/libs.min.js': ['<%= pkg.path %>coffee/libs/*.js']
 
         compass:
             dev:
