@@ -43,6 +43,8 @@ module.exports = (grunt)->
                     join: true
                 files:
                     '<%= pkg.devPath %>assets/js/app.js': [
+                        '<%= pkg.path %>coffee/**/Config.coffee',
+                        '<%= pkg.path %>coffee/**/App.coffee',
                         '<%= pkg.path %>coffee/**/*.coffee'
                     ]
             prod:
@@ -50,6 +52,8 @@ module.exports = (grunt)->
                     join: true
                 files:
                     '<%= pkg.prodPath %>assets/js/app.js': [
+                        '<%= pkg.path %>coffee/**/Config.coffee',
+                        '<%= pkg.path %>coffee/**/App.coffee',
                         '<%= pkg.path %>coffee/**/*.coffee'
                     ]
 
