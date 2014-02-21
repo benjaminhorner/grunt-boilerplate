@@ -22,7 +22,7 @@ module.exports = (grunt)->
                     livereload: true,
 
             template:
-                files: ['<%= pkg.path %>*.<%= pkg.fileType %>']
+                files: ['<%= pkg.path %>**/*.<%= pkg.fileType %>']
                 tasks: ['htmlmin:dev', 'replace:dev']
                 options:
                     livereload: true,
@@ -34,7 +34,7 @@ module.exports = (grunt)->
                     '<%= pkg.path %>assets/js/*.js',
                     '<%= pkg.path %>assets/css/*.css',
                     '<%= pkg.path %>assets/img/{,**/}*.{png,jpg,jpeg,gif,webp,svg}',
-                    '<%= pkg.devPath %>*.<%= pkg.fileType %>'
+                    '<%= pkg.devPath %>**/*.<%= pkg.fileType %>'
                 ]
 
         coffee:
@@ -44,6 +44,7 @@ module.exports = (grunt)->
                 files:
                     '<%= pkg.devPath %>assets/js/app.js': [
                         '<%= pkg.path %>coffee/**/Config.coffee',
+                        '<%= pkg.path %>coffee/**/Routes.coffee',
                         '<%= pkg.path %>coffee/**/App.coffee',
                         '<%= pkg.path %>coffee/**/*.coffee'
                     ]
@@ -53,6 +54,7 @@ module.exports = (grunt)->
                 files:
                     '<%= pkg.prodPath %>assets/js/app.js': [
                         '<%= pkg.path %>coffee/**/Config.coffee',
+                        '<%= pkg.path %>coffee/**/Routes.coffee',
                         '<%= pkg.path %>coffee/**/App.coffee',
                         '<%= pkg.path %>coffee/**/*.coffee'
                     ]
@@ -69,7 +71,14 @@ module.exports = (grunt)->
                               ' * Copyright <%= pkg.copyright %>. <%= pkg.license %> licensed.\n' +
                               ' */\n'
                 files:
-                    '<%= pkg.devPath %>assets/js/libs.min.js': ['<%= pkg.path %>coffee/libs/*.js']
+                    '<%= pkg.devPath %>assets/js/libs.min.js': [
+                        '<%= pkg.path %>coffee/libs/jquery.js',
+                        '<%= pkg.path %>coffee/libs/modernizr.js',
+                        '<%= pkg.path %>coffee/libs/handlebars.js',
+                        '<%= pkg.path %>coffee/libs/ember.js',
+                        '<%= pkg.path %>coffee/libs/zepto.animate.js',
+                        '<%= pkg.path %>coffee/libs/*.js'
+                    ]
 
             prod:
                 options:
@@ -82,7 +91,14 @@ module.exports = (grunt)->
                               ' * Copyright <%= pkg.copyright %>. <%= pkg.license %> licensed.\n' +
                               ' */\n'
                 files:
-                    '<%= pkg.prodPath %>assets/js/libs.min.js': ['<%= pkg.path %>coffee/libs/*.js']
+                    '<%= pkg.prodPath %>assets/js/libs.min.js': [
+                        '<%= pkg.path %>coffee/libs/jquery.js',
+                        '<%= pkg.path %>coffee/libs/modernizr.js',
+                        '<%= pkg.path %>coffee/libs/zepto.animate.js',
+                        '<%= pkg.path %>coffee/libs/handlebars.js',
+                        '<%= pkg.path %>coffee/libs/ember.js',
+                        '<%= pkg.path %>coffee/libs/*.js'
+                    ]
 
         compass:
             dev:
@@ -125,7 +141,7 @@ module.exports = (grunt)->
                 files: [{
                     expand: true,
                     cwd: '<%= pkg.path %>',
-                    src: '*.html',
+                    src: '**/*.<%= pkg.fileType %>',
                     dest: '<%= pkg.devPath %>'
                 }]
 
@@ -142,7 +158,7 @@ module.exports = (grunt)->
                 files: [{
                     expand: true,
                     cwd: '<%= pkg.path %>',
-                    src: '*.html',
+                    src: '**/*.<%= pkg.fileType %>',
                     dest: '<%= pkg.prodPath %>'
                 }]
 
@@ -219,7 +235,7 @@ module.exports = (grunt)->
                     prefix: '<!-- @@'
                 },
                 files: [
-                    {expand: true, flatten: true, src: ['dev/*.html'], dest: 'dev/'}
+                    {expand: true, flatten: true, src: ['dev/**/*.<%= pkg.fileType %>'], dest: 'dev/'}
                 ]
             },
             prod: {
@@ -247,7 +263,7 @@ module.exports = (grunt)->
                     prefix: '<!-- @@'
                 },
                 files: [
-                    {expand: true, flatten: true, src: ['prod/*.html'], dest: 'prod/'}
+                    {expand: true, flatten: true, src: ['prod/**/*.<%= pkg.fileType %>'], dest: 'prod/'}
                 ]
             }
         }
@@ -261,7 +277,7 @@ module.exports = (grunt)->
                     '<%= pkg.prodPath %>assets/img/**.png',
                     '<%= pkg.path %>compass/.sass-cache',
                     '<%= pkg.prodPath %>assets/css/main.css',
-                    '<%= pkg.prodPath %>/*.<%= pkg.fileType %>'
+                    '<%= pkg.prodPath %>/**/*.<%= pkg.fileType %>'
                 ]
 
         imagemin:
